@@ -1,0 +1,5 @@
+pnpm-lock.yaml
+
+# emblematic-svelte
+packages/emblematic-svelte/src/icons/*.svelte
+packages/emblematic-svelte/.svelte-kit

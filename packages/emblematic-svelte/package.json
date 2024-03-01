@@ -1,0 +1,67 @@
+{
+  "name": "emblematic-svelte",
+  "description": "An Emblematic icon library package for Svelte applications",
+  "version": "0.0.1",
+  "bugs": {
+    "url": "https://github.com/fromaline/emblematic/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fromaline/emblematic.git",
+    "directory": "packages/emblematic-svelte"
+  },
+  "keywords": [
+    "Emblematic",
+    "Svelte",
+    "Icons",
+    "Icon",
+    "SVG",
+    "Emblematic Icons"
+  ],
+  "author": "Nikita Grechino",
+  "type": "module",
+  "main": "dist/emblematic-svelte.js",
+  "exports": {
+    ".": {
+      "types": "./dist/emblematic-svelte.d.ts",
+      "svelte": "./dist/emblematic-svelte.js",
+      "default": "./dist/emblematic-svelte.js"
+    },
+    "./icons": {
+      "types": "./dist/emblematic-svelte.d.ts",
+      "svelte": "./dist/emblematic-svelte.js"
+    },
+    "./icons/*": {
+      "types": "./dist/icons/*.svelte.d.ts",
+      "svelte": "./dist/icons/*.svelte"
+    }
+  },
+  "typings": "dist/emblematic-svelte.d.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "pnpm clean && pnpm copy:license && pnpm build:icons && pnpm build:package && pnpm build:license",
+    "clean": "rm -rf dist && rm -rf stats && rm -rf ./src/icons/*.svelte && rm -f index.js",
+    "copy:license": "cp ../../LICENSE ./LICENSE",
+    "build:icons": "build-icons --output=./src --templateSrc=./scripts/exportTemplate.mjs --exportFileName=index.ts --iconFileExtension=.svelte --importImportFileExtension=.svelte --withAliases --aliasesFileExtension=.ts --aliasImportFileExtension=.svelte --pretty=false",
+    "build:package": "svelte-package --input ./src",
+    "build:license": "node ./scripts/appendBlockComments.mjs",
+    "test": "vitest run"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@emblematic/build-icons": "workspace:*",
+    "@sveltejs/package": "^2.2.7",
+    "@sveltejs/vite-plugin-svelte": "^3.0.2",
+    "@tsconfig/svelte": "^5.0.2",
+    "svelte": "^4.2.12",
+    "typescript": "^5.3.3",
+    "vite": "^5.1.4"
+  },
+  "peerDependencies": {
+    "svelte": "^3 || ^4 || ^5.0.0-next.42"
+  },
+  "homepage": "https://github.com/fromaline/emblematic#readme"
+}
