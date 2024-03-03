@@ -24,7 +24,17 @@ export default ({
     const componentName = toPascalCase(iconName);
 
     let { children } = iconNodes[iconName];
-    children = children.map(({ name, attributes }) => [name, attributes]);
+    children = children.map(({ name, attributes, children }) => {
+      if (name === 'title') {
+        return [name, { values: children[0].value, type: 'text' }]
+      }
+
+      if (Array.isArray(children) && children.length > 0) {
+        return [name, attributes, children.map((({ name, attributes }) => [name, attributes]))]
+      }
+      
+      return [name, attributes]}
+    );
 
     const getSvg = () => readSvg(`${iconName}.svg`, iconsDir);
 

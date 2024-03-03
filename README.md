@@ -1,6 +1,6 @@
 # Emblematic
 
-Emblematic is a collection of blockchains icons.
+Emblematic is a collection of blockchain icons we use on [Chainspect](https://chainspect.app/).
 
 ## Table of Contents
 
@@ -13,13 +13,13 @@ Emblematic is a collection of blockchains icons.
 Implementation of the Emblematic icon library for svelte applications.
 
 ```sh
-yarn add emblematic-svelte
+npm install emblematic-svelte
 ```
 
 or
 
 ```sh
-npm install emblematic-svelte
+yarn add emblematic-svelte
 ```
 
 or

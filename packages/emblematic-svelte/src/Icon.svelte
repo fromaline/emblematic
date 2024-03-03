@@ -14,8 +14,18 @@
   height={size}
   class={`emblematic-icon emblematic emblematic-${name} ${$$props.class ?? ''}`}
 >
-  {#each iconNode as [tag, attrs]}
-    <svelte:element this={tag} {...attrs}/>
+  {#each iconNode as [tag, attrs, children]}
+    {#if Array.isArray(children)}
+      <svelte:element this={tag} {...attrs}>
+        {#each children as [childTag, childAttrs]}
+          <svelte:element this={childTag} {...childAttrs}/>
+        {/each}
+      </svelte:element>
+    {:else if tag === 'title'}
+      <svelte:element this={tag}>{attrs.values}</svelte:element>
+    {:else}
+      <svelte:element this={tag} {...attrs}/>
+    {/if}
   {/each}
   <slot />
 </svg>

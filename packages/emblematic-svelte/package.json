@@ -1,7 +1,7 @@
 {
   "name": "emblematic-svelte",
   "description": "An Emblematic icon library package for Svelte applications",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "bugs": {
     "url": "https://github.com/fromaline/emblematic/issues"
   },
