@@ -6,6 +6,7 @@ Emblematic is a collection of blockchain icons we use on [Chainspect](https://ch
 
 - [Usage](#usage)
   - [Svelte](#svelte)
+- [Icons](#icons)
 - [Inspiration](#inspiration)
 
 ### Svelte
@@ -27,6 +28,40 @@ or
 ```sh
 pnpm add emblematic-svelte
 ```
+
+### Icons
+
+- Algorand
+- Arbitrum
+- Avalanche
+- Base
+- Bitcoin
+- BnbChain
+- BnbGreenfield
+- Cel
+- Cronos
+- Crust
+- Ethereum
+- Fantom
+- Gnosis
+- Hedera
+- Integitee
+- Iotex
+- Klaytn
+- Moonbeam
+- Opbnb
+- Optimism
+- Polkadex
+- Polkadot
+- Polygon
+- Scroll
+- Sirius
+- Solana
+- Starknet
+- Telos
+- Tron
+- Wanchain
+- Zeitgeist
 
 ## Inspiration
 
