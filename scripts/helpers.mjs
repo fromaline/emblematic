@@ -1,6 +1,6 @@
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import fs from 'node:fs'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 /**
  * Converts string to CamelCase
@@ -8,10 +8,10 @@ import { fileURLToPath } from 'url';
  * @param {string} string
  * @returns {string} A camelized string
  */
-export const toCamelCase = (string) =>
-  string.replace(/^([A-Z])|[\s-_]+(\w)/g, (match, p1, p2) =>
-    p2 ? p2.toUpperCase() : p1.toLowerCase(),
-  );
+export function toCamelCase(string) {
+  return string.replace(/^([A-Z])|[\s-_]+(\w)/g, (match, p1, p2) =>
+    p2 ? p2.toUpperCase() : p1.toLowerCase())
+}
 
 /**
  * Converts string to PascalCase
@@ -19,11 +19,11 @@ export const toCamelCase = (string) =>
  * @param {string} string
  * @returns {string} A pascalized string
  */
-export const toPascalCase = (string) => {
-  const camelCase = toCamelCase(string);
+export function toPascalCase(string) {
+  const camelCase = toCamelCase(string)
 
-  return camelCase.charAt(0).toUpperCase() + camelCase.slice(1);
-};
+  return camelCase.charAt(0).toUpperCase() + camelCase.slice(1)
+}
 
 /**
  * Resets the file contents.
@@ -31,8 +31,9 @@ export const toPascalCase = (string) => {
  * @param {string} fileName
  * @param {string} outputDirectory
  */
-export const resetFile = (fileName, outputDirectory) =>
-  fs.writeFileSync(path.join(outputDirectory, fileName), '', 'utf-8');
+export function resetFile(fileName, outputDirectory) {
+  return fs.writeFileSync(path.join(outputDirectory, fileName), '', 'utf-8')
+}
 
 /**
  * Reads the file contents.
@@ -40,7 +41,7 @@ export const resetFile = (fileName, outputDirectory) =>
  * @param {string} path
  * @returns {string} The contents of a file
  */
-export const readFile = (entry) => fs.readFileSync(path.resolve(__dirname, '../', entry), 'utf-8');
+export const readFile = entry => fs.readFileSync(path.resolve(__dirname, '../', entry), 'utf-8')
 
 /**
  * append content to a file
@@ -49,8 +50,9 @@ export const readFile = (entry) => fs.readFileSync(path.resolve(__dirname, '../'
  * @param {string} fileName
  * @param {string} outputDirectory
  */
-export const appendFile = (content, fileName, outputDirectory) =>
-  fs.appendFileSync(path.join(outputDirectory, fileName), content, 'utf-8');
+export function appendFile(content, fileName, outputDirectory) {
+  return fs.appendFileSync(path.join(outputDirectory, fileName), content, 'utf-8')
+}
 
 /**
  * writes content to a file
@@ -59,17 +61,19 @@ export const appendFile = (content, fileName, outputDirectory) =>
  * @param {string} fileName
  * @param {string} outputDirectory
  */
-export const writeFile = (content, fileName, outputDirectory) =>
-  fs.writeFileSync(path.join(outputDirectory, fileName), content, 'utf-8');
+export function writeFile(content, fileName, outputDirectory) {
+  return fs.writeFileSync(path.join(outputDirectory, fileName), content, 'utf-8')
+}
 
 /**
  * reads the icon directory
  *
  * @param {string} directory
- * @returns {array} An array of file paths containing svgs
+ * @returns {Array} An array of file paths containing svgs
  */
-export const readSvgDirectory = (directory, fileExtension = '.svg') =>
-  fs.readdirSync(directory).filter((file) => path.extname(file) === fileExtension);
+export function readSvgDirectory(directory, fileExtension = '.svg') {
+  return fs.readdirSync(directory).filter(file => path.extname(file) === fileExtension)
+}
 
 /**
  * Read svg from directory
@@ -77,8 +81,9 @@ export const readSvgDirectory = (directory, fileExtension = '.svg') =>
  * @param {string} fileName
  * @param {string} directory
  */
-export const readSvg = (fileName, directory) =>
-  fs.readFileSync(path.join(directory, fileName), 'utf-8');
+export function readSvg(fileName, directory) {
+  return fs.readFileSync(path.join(directory, fileName), 'utf-8')
+}
 
 /**
  * djb2 hashing function
@@ -87,17 +92,15 @@ export const readSvg = (fileName, directory) =>
  * @param {number} seed
  * @returns {string} A hashed string of 6 characters
  */
-export const hash = (string, seed = 5381) => {
-  let i = string.length;
+export function hash(string, seed = 5381) {
+  let i = string.length
 
-  while (i) {
-    // eslint-disable-next-line no-bitwise, no-plusplus
-    seed = (seed * 33) ^ string.charCodeAt(--i);
-  }
+  while (i)
 
-  // eslint-disable-next-line no-bitwise
-  return (seed >>> 0).toString(36).substr(0, 6);
-};
+    seed = (seed * 33) ^ string.charCodeAt(--i)
+
+  return (seed >>> 0).toString(36).substr(0, 6)
+}
 
 /**
  * Generate Hashed string based on name and attributes
@@ -107,24 +110,24 @@ export const hash = (string, seed = 5381) => {
  * @param {object} seed.attributes An object of SVGElement Attrbutes
  * @returns {string} A hashed string of 6 characters
  */
-export const generateHashedKey = ({ name, attributes }) => hash(JSON.stringify([name, attributes]));
+export const generateHashedKey = ({ name, attributes }) => hash(JSON.stringify([name, attributes]))
 
 /**
  * Checks if array of items contains duplicated items
  *
- * @param {array} children an array of items
- * @returns {Boolean} if items contains duplicated items.
+ * @param {Array} children an array of items
+ * @returns {boolean} if items contains duplicated items.
  */
-export const hasDuplicatedChildren = (children) => {
-  const hashedKeys = children.map(generateHashedKey);
+export function hasDuplicatedChildren(children) {
+  const hashedKeys = children.map(generateHashedKey)
 
   return !hashedKeys.every(
-    (key, index) => index === hashedKeys.findIndex((childKey) => childKey === key),
-  );
-};
+    (key, index) => index === hashedKeys.findIndex(childKey => childKey === key),
+  )
+}
 
 /**
  * @param {string} currentPath
  * @returns {string}
  */
-export const getCurrentDirPath = (currentPath) => path.dirname(fileURLToPath(currentPath));
+export const getCurrentDirPath = currentPath => path.dirname(fileURLToPath(currentPath))

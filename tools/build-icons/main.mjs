@@ -1,27 +1,26 @@
 #!/usr/bin/env node
-import fs from 'fs';
-import path from 'path';
-import getArgumentOptions from 'minimist';
+import fs from 'node:fs'
+import path from 'node:path'
+import getArgumentOptions from 'minimist'
 
-import renderIconsObject from './render/renderIconsObject.mjs';
-import generateIconFiles from './building/generateIconFiles.mjs';
-import generateExportsFile from './building/generateExportsFile.mjs';
+import { getCurrentDirPath, readSvgDirectory } from '../../scripts/helpers.mjs'
+import renderIconsObject from './render/renderIconsObject.mjs'
+import generateIconFiles from './building/generateIconFiles.mjs'
+import generateExportsFile from './building/generateExportsFile.mjs'
 
-import { readSvgDirectory, getCurrentDirPath } from '../../scripts/helpers.mjs';
-import generateAliasesFile from './building/generateAliasesFile.mjs';
-import getIconMetaData from './utils/getIconMetaData.mjs';
-import generateDynamicImports from './building/generateDynamicImports.mjs';
+import generateAliasesFile from './building/generateAliasesFile.mjs'
+import getIconMetaData from './utils/getIconMetaData.mjs'
+import generateDynamicImports from './building/generateDynamicImports.mjs'
 
-const cliArguments = getArgumentOptions(process.argv.slice(2));
+const cliArguments = getArgumentOptions(process.argv.slice(2))
 
-const currentDir = getCurrentDirPath(import.meta.url);
+const currentDir = getCurrentDirPath(import.meta.url)
 
-const ICONS_DIR = path.resolve(currentDir, '../../icons');
-const OUTPUT_DIR = path.resolve(process.cwd(), cliArguments.output || '../build');
+const ICONS_DIR = path.resolve(currentDir, '../../icons')
+const OUTPUT_DIR = path.resolve(process.cwd(), cliArguments.output || '../build')
 
-if (!fs.existsSync(OUTPUT_DIR)) {
-  fs.mkdirSync(OUTPUT_DIR);
-}
+if (!fs.existsSync(OUTPUT_DIR))
+  fs.mkdirSync(OUTPUT_DIR)
 
 const {
   renderUniqueKey = false,
@@ -37,20 +36,19 @@ const {
   aliasesFileExtension = '.js',
   aliasImportFileExtension = '',
   pretty = true,
-} = cliArguments;
+} = cliArguments
 
 async function buildIcons() {
-  if (templateSrc == null) {
-    throw new Error('No `templateSrc` argument given.');
-  }
+  if (templateSrc == null)
+    throw new Error('No `templateSrc` argument given.')
 
-  const svgFiles = readSvgDirectory(ICONS_DIR);
+  const svgFiles = readSvgDirectory(ICONS_DIR)
 
-  const icons = renderIconsObject(svgFiles, ICONS_DIR, renderUniqueKey);
+  const icons = renderIconsObject(svgFiles, ICONS_DIR, renderUniqueKey)
 
-  const { default: iconFileTemplate } = await import(path.resolve(process.cwd(), templateSrc));
+  const { default: iconFileTemplate } = await import(path.resolve(process.cwd(), templateSrc))
 
-  const iconMetaData = await getIconMetaData(ICONS_DIR);
+  const iconMetaData = await getIconMetaData(ICONS_DIR)
 
   // Generates iconsNodes files for each icon
   generateIconFiles({
@@ -62,7 +60,7 @@ async function buildIcons() {
     pretty: JSON.parse(pretty),
     iconsDir: ICONS_DIR,
     iconMetaData,
-  });
+  })
 
   if (withAliases) {
     await generateAliasesFile({
@@ -75,7 +73,7 @@ async function buildIcons() {
       aliasImportFileExtension,
       separateAliasesFile,
       showLog: !silent,
-    });
+    })
   }
 
   if (withDynamicImports) {
@@ -84,7 +82,7 @@ async function buildIcons() {
       outputDirectory: OUTPUT_DIR,
       fileExtension: aliasesFileExtension,
       showLog: !silent,
-    });
+    })
   }
 
   // Generates entry files for the compiler filled with icons exports
@@ -93,11 +91,12 @@ async function buildIcons() {
     path.join(OUTPUT_DIR, 'icons'),
     icons,
     importImportFileExtension,
-  );
+  )
 }
 
 try {
-  buildIcons();
-} catch (error) {
-  console.error(error);
+  buildIcons()
+}
+catch (error) {
+  console.error(error)
 }

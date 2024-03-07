@@ -1,23 +1,24 @@
-import path from 'path';
+import path from 'node:path'
 
-import { toPascalCase, resetFile, appendFile } from '../../../scripts/helpers.mjs';
+import { appendFile, resetFile, toPascalCase } from '../../../scripts/helpers.mjs'
 
 export default (inputEntry, outputDirectory, iconNodes, iconFileExtension = '') => {
-  const fileName = path.basename(inputEntry);
+  const fileName = path.basename(inputEntry)
 
   // Reset file
-  resetFile(fileName, outputDirectory);
+  resetFile(fileName, outputDirectory)
 
-  const icons = Object.keys(iconNodes);
+  const icons = Object.keys(iconNodes)
 
   // Generate Import for Icon VNodes
   icons.forEach((iconName) => {
-    const componentName = toPascalCase(iconName);
-    const importString = `export { default as ${componentName} } from './${iconName}${iconFileExtension}';\n`;
-    appendFile(importString, fileName, outputDirectory);
-  });
+    const componentName = toPascalCase(iconName)
+    const importString = `export { default as ${componentName} } from './${iconName}${iconFileExtension}';\n`
+    appendFile(importString, fileName, outputDirectory)
+  })
 
-  appendFile('\n', fileName, outputDirectory);
+  appendFile('\n', fileName, outputDirectory)
 
-  console.log(`Successfully generated ${fileName} file`);
-};
+  // eslint-disable-next-line no-console
+  console.log(`Successfully generated ${fileName} file`)
+}

@@ -1,22 +1,22 @@
 {
   "name": "@emblematic/build-icons",
-  "private": true,
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.mjs",
   "type": "module",
-  "scripts": {
-    "start": "node ./main.mjs"
-  },
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "main": "index.mjs",
   "bin": {
     "build-icons": "./main.mjs"
   },
   "engines": {
     "node": ">= 16"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "scripts": {
+    "start": "node ./main.mjs"
+  },
   "dependencies": {
     "minimist": "^1.2.7",
     "node-fetch": "^3.2.10",

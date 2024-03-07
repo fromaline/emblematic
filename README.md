@@ -1,3 +1,8 @@
+<p align=center><img width="480" src="https://raw.githubusercontent.com/fromaline/emblematic/master/images/emblematic-logo.svg" alt="Emblematic Logo"></p>
+<p align="center">
+  <a href="https://github.com/fromaline/emblematic/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/emblematic-svelte" alt="license"></a>
+</p>
+
 # Emblematic
 
 Emblematic is a collection of blockchain icons we use on [Chainspect](https://chainspect.app/).
@@ -11,7 +16,7 @@ Emblematic is a collection of blockchain icons we use on [Chainspect](https://ch
 
 ### Svelte
 
-Implementation of the Emblematic icon library for svelte applications.
+Implementation of the Emblematic icon library for Svelte applications.
 
 ```sh
 npm install emblematic-svelte

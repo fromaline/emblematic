@@ -1,7 +1,8 @@
 {
+  "type": "module",
   "private": true,
+  "license": "MIT",
   "scripts": {
     "build": "pnpm -r --filter './packages/**' build"
-  },
-  "license": "MIT"
+  }
 }

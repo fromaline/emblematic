@@ -1,5 +1,5 @@
-import path from 'path';
-import { resetFile, appendFile } from '../../../scripts/helpers.mjs';
+import path from 'node:path'
+import { appendFile, resetFile } from '../../../scripts/helpers.mjs'
 
 export default function generateDynamicImports({
   iconNodes,
@@ -7,24 +7,24 @@ export default function generateDynamicImports({
   fileExtension,
   showLog = true,
 }) {
-  const fileName = path.basename(`dynamicIconImports${fileExtension}`);
-  const icons = Object.keys(iconNodes);
+  const fileName = path.basename(`dynamicIconImports${fileExtension}`)
+  const icons = Object.keys(iconNodes)
 
   // Reset file
-  resetFile(fileName, outputDirectory);
+  resetFile(fileName, outputDirectory)
 
-  let importString = `const dynamicIconImports = {\n`;
+  let importString = `const dynamicIconImports = {\n`
 
   // Generate Import for Icon VNodes
   icons.forEach((iconName) => {
-    importString += `  '${iconName}': () => import('./icons/${iconName}'),\n`;
-  });
+    importString += `  '${iconName}': () => import('./icons/${iconName}'),\n`
+  })
 
-  importString += '};\nexport default dynamicIconImports;\n';
+  importString += '};\nexport default dynamicIconImports;\n'
 
-  appendFile(importString, fileName, outputDirectory);
+  appendFile(importString, fileName, outputDirectory)
 
-  if (showLog) {
-    console.log(`Successfully generated ${fileName} file`);
-  }
+  if (showLog)
+    // eslint-disable-next-line no-console
+    console.log(`Successfully generated ${fileName} file`)
 }
