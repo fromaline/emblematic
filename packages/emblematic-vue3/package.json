@@ -1,0 +1,59 @@
+{
+  "name": "emblematic-vue3",
+  "version": "0.0.5",
+  "description": "An Emblematic icon library package for Vue 3 applications",
+  "author": "Nikita Grechino",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fromaline/emblematic.git",
+    "directory": "packages/emblematic-svelte"
+  },
+  "bugs": {
+    "url": "https://github.com/fromaline/emblematic/issues"
+  },
+  "keywords": [
+    "Emblematic",
+    "Vue",
+    "Vue 3",
+    "Icons",
+    "Blockchain Icons",
+    "SVG",
+    "Emblematic Icons"
+  ],
+  "amdName": "emblematic-vue3",
+  "source": "build/emblematic-vue3.js",
+  "sideEffects": false,
+  "main": "dist/cjs/emblematic-vue3.js",
+  "main:umd": "dist/umd/emblematic-vue3.js",
+  "module": "dist/esm/emblematic-vue3.js",
+  "typings": "dist/emblematic-vue3.d.ts",
+  "files": [
+    "dist",
+    "nuxt.js"
+  ],
+  "scripts": {
+    "build": "pnpm clean && pnpm copy:license && pnpm build:icons && pnpm build:bundles",
+    "copy:license": "cp ../../LICENSE ./LICENSE",
+    "clean": "rm -rf dist && rm -rf ./src/icons/*.ts",
+    "build:icons": "build-icons --output=./src --templateSrc=./scripts/exportTemplate.mjs --renderUniqueKey --withAliases --aliasesFileExtension=.ts --iconFileExtension=.ts --exportFileName=index.ts",
+    "build:bundles": "rollup -c ./rollup.config.mjs",
+    "test": "vitest run"
+  },
+  "peerDependencies": {
+    "vue": ">=3.0.1"
+  },
+  "devDependencies": {
+    "@emblematic/build-icons": "workspace:^",
+    "@emblematic/rollup-plugins": "workspace:^",
+    "@testing-library/jest-dom": "^6.1.6",
+    "@testing-library/vue": "^8.0.1",
+    "@vitejs/plugin-vue": "^4.6.2",
+    "@vue/test-utils": "2.4.3",
+    "rollup": "^4.9.2",
+    "rollup-plugin-dts": "^6.1.0",
+    "vite": "5.0.12",
+    "vitest": "^1.1.1",
+    "vue": "^3.0.1"
+  }
+}

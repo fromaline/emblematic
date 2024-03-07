@@ -11,8 +11,29 @@ Emblematic is a collection of blockchain icons we use on [Chainspect](https://ch
 
 - [Usage](#usage)
   - [Svelte](#svelte)
+  - [Vue 3](#vue-3)
 - [Icons](#icons)
 - [Inspiration](#inspiration)
+
+### Vue 3
+
+Implementation of the Emblematic icon library for Vue 3 applications.
+
+```sh
+npm install emblematic-vue3
+```
+
+or
+
+```sh
+yarn add emblematic-vue3
+```
+
+or
+
+```sh
+pnpm add emblematic-vue3
+```
 
 ### Svelte
 
