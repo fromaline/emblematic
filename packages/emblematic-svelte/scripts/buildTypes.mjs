@@ -1,27 +1,28 @@
-import path from 'path';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { getAliases } from '@emblematic/build-icons';
+import path from 'node:path'
+
+import { getAliases } from '@emblematic/build-icons'
 import {
-  writeFile,
+  getCurrentDirPath,
   readSvgDirectory,
   resetFile,
   toPascalCase,
-  getCurrentDirPath,
-} from '../../../scripts/helpers.mjs';
+  writeFile,
+} from '../../../scripts/helpers.mjs'
 
-const currentDir = getCurrentDirPath(import.meta.url);
-const targetDirectory = path.join(currentDir, '../dist');
+const currentDir = getCurrentDirPath(import.meta.url)
+const targetDirectory = path.join(currentDir, '../dist')
 
-const writeDeclarationFile = (typesFile, directory, content) => {
-  resetFile(typesFile, directory);
-  writeFile(content, typesFile, directory);
-};
+function writeDeclarationFile(typesFile, directory, content) {
+  resetFile(typesFile, directory)
+  writeFile(content, typesFile, directory)
+}
 
-const getComponentImport = (componentName) =>
-  `export declare class ${componentName} extends SvelteComponent<IconProps, IconEvents, {}> {}\n`;
+function getComponentImport(componentName) {
+  return `export declare class ${componentName} extends SvelteComponent<IconProps, IconEvents, {}> {}\n`
+}
 
-const ICONS_DIR = path.resolve(currentDir, '../../../icons');
-const TYPES_FILE = 'emblematic-svelte.d.ts';
+const ICONS_DIR = path.resolve(currentDir, '../../../icons')
+const TYPES_FILE = 'emblematic-svelte.d.ts'
 
 // Declare type definitions
 let declarationFileContent = `\
@@ -41,53 +42,54 @@ interface IconEvents {
 export type Icon = SvelteComponent<IconProps, IconEvents, {}>
 
 // Generated icons
-`;
+`
 
-const svgFiles = readSvgDirectory(ICONS_DIR);
+const svgFiles = readSvgDirectory(ICONS_DIR)
 
 svgFiles.forEach((svgFile) => {
-  const iconName = path.basename(svgFile, '.svg');
-  const componentName = toPascalCase(iconName);
+  const iconName = path.basename(svgFile, '.svg')
+  const componentName = toPascalCase(iconName)
 
-  declarationFileContent += getComponentImport(componentName);
-});
+  declarationFileContent += getComponentImport(componentName)
+})
 
-const aliases = await getAliases(ICONS_DIR);
+const aliases = await getAliases(ICONS_DIR)
 
 declarationFileContent += `\n
 
 // Generated icon aliases
-`;
+`
 
-let aliasesCount = 0;
+let aliasesCount = 0
 
 svgFiles.forEach((svgFile) => {
-  const iconName = path.basename(svgFile, '.svg');
-  const componentName = toPascalCase(iconName);
-  const iconAliases = aliases[iconName]?.aliases;
+  const iconName = path.basename(svgFile, '.svg')
+  const componentName = toPascalCase(iconName)
+  const iconAliases = aliases[iconName]?.aliases
 
-  declarationFileContent += `// ${componentName} aliases\n`;
-  declarationFileContent += getComponentImport(`${componentName}Icon`);
-  declarationFileContent += getComponentImport(`emblematic${componentName}`);
+  declarationFileContent += `// ${componentName} aliases\n`
+  declarationFileContent += getComponentImport(`${componentName}Icon`)
+  declarationFileContent += getComponentImport(`emblematic${componentName}`)
 
-  aliasesCount += 1;
+  aliasesCount += 1
   if (iconAliases != null && Array.isArray(iconAliases)) {
     iconAliases.forEach((alias) => {
-      const componentNameAlias = toPascalCase(alias);
-      declarationFileContent += getComponentImport(componentNameAlias);
+      const componentNameAlias = toPascalCase(alias)
+      declarationFileContent += getComponentImport(componentNameAlias)
 
-      aliasesCount += 1;
-    });
+      aliasesCount += 1
+    })
   }
 
-  declarationFileContent += '\n';
-});
+  declarationFileContent += '\n'
+})
 
-writeDeclarationFile(TYPES_FILE, targetDirectory, declarationFileContent);
+writeDeclarationFile(TYPES_FILE, targetDirectory, declarationFileContent)
+// eslint-disable-next-line no-console
 console.log(
   `Generated ${TYPES_FILE} file with`,
   svgFiles.length,
   'icons and with',
   aliasesCount,
   'aliases',
-);
+)

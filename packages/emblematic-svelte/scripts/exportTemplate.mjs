@@ -1,10 +1,9 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import base64SVG from '@emblematic/build-icons/utils/base64SVG.mjs';
-import { getJSBanner } from './license.mjs';
+import base64SVG from '@emblematic/build-icons/utils/base64SVG.mjs'
+import { getJSBanner } from './license.mjs'
 
 export default ({ iconName, children, componentName, getSvg }) => {
-  const svgContents = getSvg();
-  const svgBase64 = base64SVG(svgContents);
+  const svgContents = getSvg()
+  const svgBase64 = base64SVG(svgContents)
 
   return `\
 <script lang="ts">
@@ -30,5 +29,5 @@ const iconNode: IconNode = ${JSON.stringify(children)};
 <Icon name="${iconName}" {...$$props} iconNode={iconNode}>
   <slot/>
 </Icon>
-`;
-};
+`
+}
