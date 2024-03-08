@@ -1,6 +1,6 @@
 {
 
-  "extends": "./playground/.nuxt/tsconfig.json",
+  "extends": "./docs/.nuxt/tsconfig.json",
   "compilerOptions": {
     "target": "ESNext",
     "lib": ["esnext", "dom"],
@@ -19,5 +19,5 @@
     "isolatedModules": true,
     "skipLibCheck": true
   },
-  "include": ["./playground/.nuxt/nuxt.d.ts", "./playground/**/*", "./src/**/*"]
+  "include": ["./docs/.nuxt/nuxt.d.ts", "./docs/**/*", "./src/**/*"]
 }
