@@ -1,0 +1,15 @@
+@font-face {
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 100 1000;
+	font-display: swap;
+	src: url(/fonts/Montserrat-VF.woff2);
+}
+
+#__nuxt {
+	@apply flex flex-col min-h-screen justify-between;
+}
+
+.link {
+	@apply rounded-sm border-b border-b-primary hover:border-b-2 focus-visible:border-b-transparent focus-visible:ring;
+}
