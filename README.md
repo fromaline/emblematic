@@ -85,6 +85,7 @@ pnpm add emblematic-svelte
 - Solana
 - Starknet
 - Telos
+- Ton
 - Tron
 - Wanchain
 - Zeitgeist
