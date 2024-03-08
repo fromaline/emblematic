@@ -14,6 +14,11 @@ export const useIconsStore = defineStore('iconsStore', {
   state: (): State => ({
     icons: [
       {
+        name: 'Airdao',
+        chain: 'AirDAO',
+        slug: 'airdao',
+      },
+      {
         name: 'Algorand',
         chain: 'Algorand',
         slug: 'algorand',

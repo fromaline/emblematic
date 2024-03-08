@@ -1,7 +1,7 @@
 {
   "name": "emblematic-svelte",
   "type": "module",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "An Emblematic icon library package for Svelte applications",
   "author": "Nikita Grechino",
   "license": "MIT",

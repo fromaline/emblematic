@@ -57,6 +57,7 @@ pnpm add emblematic-svelte
 
 ### Icons
 
+- AirDAO
 - Algorand
 - Arbitrum
 - Avalanche

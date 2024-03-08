@@ -23,7 +23,7 @@ importers:
         specifier: ^2.14.2
         version: 2.14.2(nuxt@3.10.3)(vite@5.1.4)(vue@3.4.21)
       emblematic-vue3:
-        specifier: ^0.0.7
+        specifier: ^0.0.8
         version: link:../packages/emblematic-vue3
       nuxt:
         specifier: ^3.10.3
