@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 useSeoMeta({
   title: 'Emblematic License',
-  description: 'Emblematic License',
+  description: 'Emblematic is released under the MIT License',
 })
 </script>
 

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 useSeoMeta({
-  title: 'Emblematic Blockchain Icons',
-  description: 'Emblematic Blockchain Icons',
+  title: 'All Emblematic Icons',
+  description: 'We Have Blockchain Icons For Your Favourite Networks!',
 })
 
 const q = defineModel({ default: '' })

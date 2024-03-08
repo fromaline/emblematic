@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 useSeoMeta({
-  title: 'Emblematic Blockchain Icons',
-  description: 'Emblematic Blockchain Icons',
+  title: 'Emblematic Paclages',
+  description: 'Emblematic Icons are available as packages for Vue and Svelte. Support for other frameworks is coming soon.',
 })
 
 const packages = ref([

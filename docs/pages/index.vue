@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 useSeoMeta({
   title: 'Emblematic Blockchain Icons',
-  description: 'Emblematic Blockchain Icons',
+  description: 'Emblematic is a collection of ready-to-use blockchain icons.',
 })
 
 const { icons, popularIcons } = useIconsStore()

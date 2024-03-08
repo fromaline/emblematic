@@ -13,7 +13,14 @@ useHead({
   meta: [
     { name: 'msapplication-TileColor', content: '#da532c' },
     { name: 'theme-color', content: '#ffffff' },
-    { hid: 'og:image', property: 'og:image', content: '/og.png' }
+    { property: 'og:image', content: '/og.png' },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:url', content: 'https://emblematic.dev/' },
+    { property: 'og:title', content: 'Emblematic Blockchain Icons' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:site', content: 'https://emblematic.dev/' },
+    { name: 'twitter:title', content: 'Emblematic Blockchain Icons' },
+    { name: 'twitter:description', content: 'Emblematic is a collection of ready-to-use blockchain icons.' }
   ],
   htmlAttrs: {
     class: 'min-h-screen',
