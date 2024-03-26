@@ -1,7 +1,7 @@
 {
   "name": "emblematic-svelte",
   "type": "module",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "An Emblematic icon library package for Svelte applications",
   "author": "Nikita Grechino",
   "license": "MIT",
@@ -51,7 +51,7 @@
     "build:package": "svelte-package --input ./src",
     "build:license": "node ./scripts/appendBlockComments.mjs",
     "test": "vitest run",
-    "test:update": "vitest -u"
+    "test:update": "vitest run -u"
   },
   "peerDependencies": {
     "svelte": "^3 || ^4 || ^5.0.0-next.42"

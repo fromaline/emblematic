@@ -1,6 +1,6 @@
 {
   "name": "emblematic-vue3",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "An Emblematic icon library package for Vue 3 applications",
   "author": "Nikita Grechino",
   "license": "MIT",
@@ -38,7 +38,8 @@
     "clean": "rm -rf dist && rm -rf ./src/icons/*.ts",
     "build:icons": "build-icons --output=./src --templateSrc=./scripts/exportTemplate.mjs --renderUniqueKey --withAliases --aliasesFileExtension=.ts --iconFileExtension=.ts --exportFileName=index.ts",
     "build:bundles": "rollup -c ./rollup.config.mjs",
-    "test": "vitest run"
+    "test": "vitest run",
+    "test:update": "vitest run -u"
   },
   "peerDependencies": {
     "vue": ">=3.0.1"

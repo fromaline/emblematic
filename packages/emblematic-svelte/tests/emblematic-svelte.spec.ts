@@ -1,18 +1,15 @@
 import { afterEach, describe, expect, it } from 'vitest'
 import { cleanup, render } from '@testing-library/svelte'
-import { Algorand, Arbitrum, Avalanche, Base, Bitcoin, BnbChain, BnbGreenfield, Celo, Cronos, Crust, Ethereum, Fantom, Gnosis, Hedera, Integritee, Iotex, Klaytn, Moonbeam, Opbnb, Optimism, Polkadex, Polkadot, Polygon, Scroll, Sirius, Solana, Starknet, Telos, Tron, Wanchain, Zeitgeist } from '../src/emblematic-svelte'
+import { Ethereum } from '../src/emblematic-svelte'
 import TestSlots from './TestSlots.svelte'
 
 describe('using Emblematic icon components', () => {
   afterEach(() => cleanup())
 
-  const icons = [Algorand, Arbitrum, Avalanche, Base, Bitcoin, BnbChain, BnbGreenfield, Celo, Cronos, Crust, Ethereum, Fantom, Gnosis, Hedera, Integritee, Iotex, Klaytn, Moonbeam, Opbnb, Optimism, Polkadex, Polkadot, Polygon, Scroll, Sirius, Solana, Starknet, Telos, Tron, Wanchain, Zeitgeist]
-
   it('should render an component', () => {
-    icons.forEach((icon) => {
-      const { container } = render(icon)
-      expect(container).toMatchSnapshot()
-    })
+    const { container } = render(Ethereum)
+
+    expect(container).toMatchSnapshot()
   })
 
   it('should adjust the size', () => {

@@ -69,6 +69,11 @@ export const useIconsStore = defineStore('iconsStore', {
         slug: 'crust',
       },
       {
+        name: 'Ecash',
+        chain: 'eCash',
+        slug: 'ecash',
+      },
+      {
         name: 'Ethereum',
         chain: 'Ethereum',
         slug: 'ethereum',

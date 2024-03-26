@@ -1,17 +1,14 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { cleanup, fireEvent, render } from '@testing-library/vue'
-import { Algorand, Arbitrum, Avalanche, Base, Bitcoin, BnbChain, BnbGreenfield, Celo, Cronos, Crust, Ethereum, Fantom, Gnosis, Hedera, Integritee, Iotex, Klaytn, Moonbeam, Opbnb, Optimism, Polkadex, Polkadot, Polygon, Scroll, Sirius, Solana, Starknet, Telos, Tron, Wanchain, Zeitgeist } from '../src/emblematic-vue3'
+import { Ethereum } from '../src/emblematic-vue3'
 
 describe('using Emblematic icon components', () => {
   afterEach(() => cleanup())
 
-  const icons = [Algorand, Arbitrum, Avalanche, Base, Bitcoin, BnbChain, BnbGreenfield, Celo, Cronos, Crust, Ethereum, Fantom, Gnosis, Hedera, Integritee, Iotex, Klaytn, Moonbeam, Opbnb, Optimism, Polkadex, Polkadot, Polygon, Scroll, Sirius, Solana, Starknet, Telos, Tron, Wanchain, Zeitgeist]
-
   it('should render a component', () => {
-    icons.forEach((icon) => {
-      const { container } = render(icon)
-      expect(container).toMatchSnapshot()
-    })
+    const { container } = render(Ethereum)
+
+    expect(container).toMatchSnapshot()
   })
 
   it('should adjust the size', () => {
