@@ -29,6 +29,11 @@ export const useIconsStore = defineStore('iconsStore', {
         slug: 'arbitrum',
       },
       {
+        name: 'Arthera',
+        chain: 'Arthera',
+        slug: 'arthera',
+      },
+      {
         name: 'Avalanche',
         chain: 'Avalanche',
         slug: 'avalanche',
@@ -92,6 +97,11 @@ export const useIconsStore = defineStore('iconsStore', {
         name: 'Hedera',
         chain: 'Hedera',
         slug: 'hedera',
+      },
+      {
+        name: 'Multiversx',
+        chain: 'MultiversX',
+        slug: 'multiversx',
       },
       {
         name: 'Integritee',

@@ -60,14 +60,16 @@ pnpm add emblematic-svelte
 - AirDAO
 - Algorand
 - Arbitrum
+- Arthera
 - Avalanche
 - Base
 - Bitcoin
 - BnbChain
 - BnbGreenfield
-- Cel
+- Celo
 - Cronos
 - Crust
+- eCash
 - Ethereum
 - Fantom
 - Gnosis
@@ -76,6 +78,7 @@ pnpm add emblematic-svelte
 - Iotex
 - Klaytn
 - Moonbeam
+- Multiversx
 - Opbnb
 - Optimism
 - Polkadex
