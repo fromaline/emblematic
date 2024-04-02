@@ -66,6 +66,7 @@ pnpm add emblematic-svelte
 - Bitcoin
 - BnbChain
 - BnbGreenfield
+- Cardano
 - Celo
 - Cronos
 - Crust

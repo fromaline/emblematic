@@ -59,6 +59,11 @@ export const useIconsStore = defineStore('iconsStore', {
         slug: 'bnb-greenfield',
       },
       {
+        name: 'Cardano',
+        chain: 'Cardano',
+        slug: 'cardano',
+      },
+      {
         name: 'Celo',
         chain: 'Celo',
         slug: 'celo',
