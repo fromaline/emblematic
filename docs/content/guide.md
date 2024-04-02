@@ -88,6 +88,7 @@ pnpm add emblematic-svelte
 - Sirius
 - Solana
 - Starknet
+- Stellar
 - Telos
 - Ton
 - Tron

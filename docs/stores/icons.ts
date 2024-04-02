@@ -169,6 +169,11 @@ export const useIconsStore = defineStore('iconsStore', {
         slug: 'starknet',
       },
       {
+        name: 'Stellar',
+        chain: 'Stellar',
+        slug: 'stellar',
+      },
+      {
         name: 'Telos',
         chain: 'Telos',
         slug: 'telos',

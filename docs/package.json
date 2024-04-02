@@ -14,7 +14,7 @@
     "@iconify-json/simple-icons": "^1.1.94",
     "@nuxt/content": "^2.12.0",
     "@nuxt/ui": "^2.14.2",
-    "emblematic-vue3": "^0.0.10",
+    "emblematic-vue3": "^0.0.11",
     "nuxt": "^3.10.3",
     "pinia": "^2.1.7",
     "vue": "^3.4.19",
